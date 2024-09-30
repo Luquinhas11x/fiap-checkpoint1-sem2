@@ -17,12 +17,13 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Cliente save(Cliente produto) {
-        return clienteRepository.save(produto);
+    public Cliente save(Cliente cliente) {
+
+        return clienteRepository.save(cliente);
     }
 
     public boolean existsById(Long id) {
-        return clienteRepository.existsById(id);
+        return !clienteRepository.existsById(id);
     }
 
     public void delete(Long id) {

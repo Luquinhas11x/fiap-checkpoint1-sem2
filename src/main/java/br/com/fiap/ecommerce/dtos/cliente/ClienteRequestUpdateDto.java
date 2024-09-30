@@ -10,6 +10,7 @@ public class ClienteRequestUpdateDto {
     public Cliente toModel(Long id) {
         Cliente result = modelMapper.map(this, Cliente.class);
         result.setId(id);
+
         return result;
     }
 

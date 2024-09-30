@@ -3,11 +3,7 @@ package br.com.fiap.ecommerce.controller;
 import br.com.fiap.ecommerce.dtos.cliente.ClienteRequestCreateDto;
 import br.com.fiap.ecommerce.dtos.cliente.ClienteRequestUpdateDto;
 import br.com.fiap.ecommerce.dtos.cliente.ClienteResponseDto;
-import br.com.fiap.ecommerce.dtos.produto.ProdutoRequestCreateDto;
-import br.com.fiap.ecommerce.dtos.produto.ProdutoRequestUpdateDto;
-import br.com.fiap.ecommerce.dtos.produto.ProdutoResponseDto;
 import br.com.fiap.ecommerce.service.ClienteService;
-import br.com.fiap.ecommerce.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +41,7 @@ public class ClienteController {
     public ResponseEntity<ClienteResponseDto> update(
             @PathVariable Long id,
             @RequestBody ClienteRequestUpdateDto dto) {
-        if (! clienteService.existsById(id)){
+        if (clienteService.existsById(id)){
             throw new RuntimeException("Id inexistente");
         }
         return ResponseEntity.ok()
@@ -57,7 +53,7 @@ public class ClienteController {
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
-        if (! clienteService.existsById(id)){
+        if (clienteService.existsById(id)){
             throw new RuntimeException("Id inexistente");
         }
 
