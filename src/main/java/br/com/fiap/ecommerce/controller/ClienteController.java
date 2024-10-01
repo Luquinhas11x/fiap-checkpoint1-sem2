@@ -40,14 +40,14 @@ public class ClienteController {
     @PutMapping("{id}")
     public ResponseEntity<ClienteResponseDto> update(
             @PathVariable Long id,
-            @RequestBody ClienteRequestUpdateDto dto) {
+            @RequestBody ClienteRequestUpdateDto request) {
         if (clienteService.existsById(id)){
             throw new RuntimeException("Id inexistente");
         }
         return ResponseEntity.ok()
                 .body(
                         new ClienteResponseDto().toDto(
-                                clienteService.save(dto.toModel(id)))
+                                clienteService.update(request, id))
                 );
     }
 

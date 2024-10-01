@@ -13,30 +13,6 @@ public class ClienteResponseDto {
     private static final ModelMapper modelMapper = new ModelMapper();
 
     public ClienteResponseDto toDto(Cliente cliente) {
-        String cep = cliente.getCep();
-
-        if (cep.endsWith("0")) {
-            cliente.setBairro("Vila Mascote");
-        } else if (cep.endsWith("1")) {
-            cliente.setBairro("Jardim Paulista");
-        } else if (cep.endsWith("2")) {
-            cliente.setBairro("Moema");
-        } else if (cep.endsWith("3")) {
-            cliente.setBairro("Tatuapé");
-        } else if (cep.endsWith("4")) {
-            cliente.setBairro("Pinheiros");
-        } else if (cep.endsWith("5")) {
-            cliente.setBairro("Vila Mariana");
-        } else if (cep.endsWith("6")) {
-            cliente.setBairro("Brooklin");
-        } else if (cep.endsWith("7")) {
-            cliente.setBairro("Perdizes");
-        } else if (cep.endsWith("8")) {
-            cliente.setBairro("Lapa");
-        } else if (cep.endsWith("9")) {
-            cliente.setBairro("Liberdade");
-        }
-
         return modelMapper.map(cliente, ClienteResponseDto.class);
     }
 
