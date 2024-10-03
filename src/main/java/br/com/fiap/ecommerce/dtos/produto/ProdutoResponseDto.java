@@ -4,9 +4,12 @@ import org.modelmapper.ModelMapper;
 
 import br.com.fiap.ecommerce.model.Produto;
 
+import java.math.BigDecimal;
+
 public class ProdutoResponseDto {
     private Long id;
 	private String nome;
+    private BigDecimal valor;
     private static final ModelMapper modelMapper = new ModelMapper();
 
     public ProdutoResponseDto toDto(Produto produto) {
@@ -32,6 +35,12 @@ public class ProdutoResponseDto {
         this.nome = nome;
     }
 
-    
 
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
 }

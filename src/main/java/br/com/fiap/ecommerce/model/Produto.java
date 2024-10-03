@@ -14,10 +14,10 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String nome;
 
-	@Column(precision = 16, scale = 2)
+	@Column(nullable = false, precision = 16, scale = 2)
 	private BigDecimal valor;
 
 	public Long getId() {

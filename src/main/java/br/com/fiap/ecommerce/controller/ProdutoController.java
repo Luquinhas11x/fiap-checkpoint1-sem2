@@ -51,19 +51,19 @@ public class ProdutoController {
     public ResponseEntity<ProdutoResponseDto> update(
                         @PathVariable Long id, 
                         @RequestBody ProdutoRequestUpdateDto dto) {
-        if (! produtoService.existsById(id)){
+        if (produtoService.existsById(id)){
             throw new RuntimeException("Id inexistente");
         }                
         return ResponseEntity.ok()
         		.body(
         			new ProdutoResponseDto().toDto(
-        				produtoService.save(dto.toModel(id)))
+        				produtoService.update(dto, id))
         		);
     }
     
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
-        if (! produtoService.existsById(id)){
+        if (produtoService.existsById(id)){
         	throw new RuntimeException("Id inexistente");
         }
 
